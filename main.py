@@ -56,13 +56,13 @@ if check_password():
     """)
 
     st.write("""
-    ### DF1
+    ### DF1 / Commandes
     """)
     st.dataframe(df1)
     input1 = st.multiselect('Select a column in df1', df1.columns)
 
     st.write("""
-    ### DF2
+    ### DF2 / Factures
     """)
     st.dataframe(df2)
     input2 = st.multiselect('Select a column in df2', df2.columns)
