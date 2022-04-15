@@ -59,11 +59,20 @@ if check_password():
     ### DF1 / Commandes
     """)
     st.dataframe(df1)
+    site_ref = df1['site_ref']
+    input1 = st.selectbox('Select a site reference:', site_ref)
     cities = df1['city']
-    input1 = st.selectbox('', cities)
+    input2 = st.selectbox('Select a city:', cities)
+    countries = df1['country']
+    input3 = st.selectbox('Select a contry:', countries)
 
     st.write("""
     ### DF2 / Factures
     """)
     st.dataframe(df2)
-    input2 = st.multiselect('Select a column in df2', df2.columns)
+    site_ref = df2['site_ref']
+    input4 = st.selectbox('Select a site reference:', site_ref)
+    inv_date = df2['inv_date']
+    input5 = st.selectbox('Select a date of invoice:', inv_date)
+    inv_num = df2['inv_num']
+    input6 = st.selectbox('Select an inventory number:', inv_num)
