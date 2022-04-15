@@ -59,7 +59,7 @@ if check_password():
     ### DF1 / Commandes
     """)
     st.dataframe(df1)
-    input1 = st.multiselect('Select a column in df1', df1.columns)
+    input1 = st.multiselect('Select a column in df1', df1.columns['city'])
 
     st.write("""
     ### DF2 / Factures
