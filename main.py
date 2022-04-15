@@ -58,21 +58,31 @@ if check_password():
     st.write("""
     ### DF1 / Commandes
     """)
-    st.dataframe(df1)
-    site_ref = df1['site_ref']
-    input1 = st.selectbox('Select a site reference:', site_ref)
-    cities = df1['city']
-    input2 = st.selectbox('Select a city:', cities)
-    countries = df1['country']
-    input3 = st.selectbox('Select a contry:', countries)
+    # st.dataframe(df1)
+    with st.sidebar:
+        site_ref = df1['site_ref']
+        input1 = st.selectbox('Select a site reference:', site_ref.unique())
+        st.write(df1[df1['site_ref'] == input1])
+        cities = df1['city']
+        input2 = st.selectbox('Select a city:', cities.unique())
+        st.write(df1[df1['city'] == input2])
+        countries = df1['country']
+        input3 = st.selectbox('Select a contry:', countries.unique())
+        st.write(df1[df1['country'] == input3])
+    st.write(df1)
 
     st.write("""
     ### DF2 / Factures
     """)
     st.dataframe(df2)
-    site_ref = df2['site_ref']
-    input4 = st.selectbox('Select a site reference:', site_ref)
-    inv_date = df2['inv_date']
-    input5 = st.selectbox('Select a date of invoice:', inv_date)
-    inv_num = df2['inv_num']
-    input6 = st.selectbox('Select an inventory number:', inv_num)
+    with st.sidebar:
+        site_ref2 = df2['site_ref']
+        input4 = st.selectbox(
+            'Select a site reference for invoice:', site_ref2.unique())
+        st.write(df2[df2['site_ref'] == input4])
+        inv_date = df2['inv_date']
+        input5 = st.selectbox('Select a date of invoice:', inv_date.unique())
+        st.write(df2[df2['inv_date'] == input5])
+        inv_num = df2['inv_num']
+        input6 = st.selectbox('Select an inventory number:', inv_num.unique())
+        st.write(df2[df2['inv_num'] == input6])
